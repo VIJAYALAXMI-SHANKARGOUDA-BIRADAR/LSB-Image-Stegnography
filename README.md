@@ -149,7 +149,8 @@ It calls all helper functions step by step and ensures encoding is done correctl
 2. Decoding
 
 
-<img width="783" height="408" alt="image" src="https://github.com/user-attachments/assets/fc6ba604-8b16-4208-8d85-0e0e59ecbea0" />
+<img width="729" height="513" alt="image" src="https://github.com/user-attachments/assets/335a0d7e-d839-455f-85f7-2588169a6921" />
+
 
 
 <img width="1457" height="729" alt="image" src="https://github.com/user-attachments/assets/3c32d46a-0b39-4ceb-974d-6bff0f63379d" />
