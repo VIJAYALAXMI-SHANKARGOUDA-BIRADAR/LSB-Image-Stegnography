@@ -55,8 +55,6 @@ At the end, I copy the remaining image data to generate the final stego image.�
 In BMP format, width and height are stored at offset 18.
 I read width and height from the header and return width × height × 3 since BMP uses 3 bytes per pixel.”
 
-👉 Used for capacity checking
-
 🔹 open_files()
 
 “This function opens the source image, secret file, and stego image file.
@@ -73,8 +71,6 @@ If stego image name is not provided, I use a default name stego.bmp.”
 “Before encoding, I check whether the image has sufficient capacity.
 I calculate required size for magic string, file extension, file size, and secret data in bits.
 If the image size is sufficient, encoding continues.”
-
-💡 Interview tip: This shows defensive programming.
 
 🔹 copy_bmp_header()
 
