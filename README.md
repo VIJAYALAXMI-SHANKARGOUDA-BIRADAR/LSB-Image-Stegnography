@@ -123,9 +123,24 @@ It calls all helper functions step by step and ensures encoding is done correctl
 
 # Compilation 
 <img width="940" height="151" alt="image" src="https://github.com/user-attachments/assets/5a0e4e3f-30bc-4257-8c1d-7b1a5fbe1536" />
+
+
+
 1.gcc *.c
+
 2.encoding => ./a.out -e stego1.bmp secret.txt st.bmp
+
 3.decoding => ./a.out -d st.bmp
+
+
+# 📘 Learning Outcome
+
+- Understood LSB-based image steganography
+- Gained hands-on experience with bitwise operations
+- Learned binary file handling using C
+- Improved understanding of command-line arguments
+- Practiced modular programming using multiple source files
+
 
 
 
