@@ -1,4 +1,4 @@
-# LSB-Image-Stegnography
+# LSB-Image-Stegnography🔐🖼️
 # Image Steganography using LSB Technique in C.
 
 # Description
@@ -118,6 +118,16 @@ After that, I encode the complete secret file data into the image using LSB.”
 🔹 do_encoding() (MAIN CONTROLLER)
 
 “This function controls the complete encoding process.
-It calls all helper functions step by step and ensures encoding is done correctly with proper error handling.”
+It calls all helper functions step by step and ensures encoding is done correctly with proper error handling.
+
+
+# Compilation 
+<img width="940" height="151" alt="image" src="https://github.com/user-attachments/assets/5a0e4e3f-30bc-4257-8c1d-7b1a5fbe1536" />
+1.gcc *.c
+2.encoding => ./a.out -e stego1.bmp secret.txt st.bmp
+3.decoding => ./a.out -d st.bmp
+
+
+
 
 
