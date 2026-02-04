@@ -43,77 +43,77 @@ Using the decoded file size and extension, the original secret message is correc
 
 🔹 Overall Encoding Flow
 
-“In the encoding part, my program hides secret data into a BMP image using the LSB technique.
+In the encoding part, my program hides secret data into a BMP image using the LSB technique.
 First, I validate input arguments and open required files.
 Then I check whether the image has enough capacity to store the secret data.
 After copying the BMP header, I encode a magic string, secret file extension, secret file size, and finally the secret file data into the image.
-At the end, I copy the remaining image data to generate the final stego image.”
+At the end, I copy the remaining image data to generate the final stego image.
 
 🔹 get_image_size_for_bmp()
 
-“This function calculates the image capacity.
+This function calculates the image capacity.
 In BMP format, width and height are stored at offset 18.
-I read width and height from the header and return width × height × 3 since BMP uses 3 bytes per pixel.”
+I read width and height from the header and return width × height × 3 since BMP uses 3 bytes per pixel.
 
 🔹 open_files()
 
-“This function opens the source image, secret file, and stego image file.
-I perform error handling for each file to ensure safe execution.”
+This function opens the source image, secret file, and stego image file.
+I perform error handling for each file to ensure safe execution.
 
 🔹 read_and_validate_encode_args()
 
-“This function validates command-line arguments.
+This function validates command-line arguments.
 It checks whether the source image is .bmp, secret file has an extension, and stego image name is valid.
-If stego image name is not provided, I use a default name stego.bmp.”
+If stego image name is not provided, I use a default name stego.bmp.
 
 🔹 check_capacity()
 
-“Before encoding, I check whether the image has sufficient capacity.
+Before encoding, I check whether the image has sufficient capacity.
 I calculate required size for magic string, file extension, file size, and secret data in bits.
-If the image size is sufficient, encoding continues.”
+If the image size is sufficient, encoding continues.
 
 🔹 copy_bmp_header()
 
-“BMP header is 54 bytes.
-I copy these bytes directly to the stego image without modification to preserve image structure.”
+BMP header is 54 bytes.
+I copy these bytes directly to the stego image without modification to preserve image structure.
 
 🔹 encode_byte_to_lsb()
 
-“This is the core LSB logic.
+This is the core LSB logic.
 For each bit of secret data, I clear the LSB of the image byte and set it using bitwise operations.
-Only the least significant bit is modified, so image quality is not affected.”
+Only the least significant bit is modified, so image quality is not affected.
 
 🔹 encode_size_to_lsb()
 
-“This function encodes an integer value, like file size or extension size, into 32 image bytes using LSB technique.”
+This function encodes an integer value, like file size or extension size, into 32 image bytes using LSB technique.
 
 🔹 encode_data_to_image()
 
-“This is a generic function used to encode any data.
-For each character, I read 8 bytes from the image and store each bit of the character into the LSB of those bytes.”
+This is a generic function used to encode any data.
+For each character, I read 8 bytes from the image and store each bit of the character into the LSB of those bytes.
 
 🔹 encode_magic_string()
 
-“A predefined magic string is encoded to identify that the image contains hidden data.
-This helps during decoding.”
+A predefined magic string is encoded to identify that the image contains hidden data.
+This helps during decoding.
 
 🔹 encode_secret_file_ext_size() and encode_secret_file_extn()
 
-“First, I encode the length of the secret file extension.
-Then I encode the actual extension so that the decoder knows what type of file is hidden.”
+First, I encode the length of the secret file extension.
+Then I encode the actual extension so that the decoder knows what type of file is hidden.
 
 🔹 encode_secret_file_size() and encode_secret_file_data()
 
-“I encode the secret file size so the decoder knows how many bytes to extract.
-After that, I encode the complete secret file data into the image using LSB.”
+I encode the secret file size so the decoder knows how many bytes to extract.
+After that, I encode the complete secret file data into the image using LSB.
 
 🔹 copy_remaining_img_data()
 
-“After encoding is complete, I copy the remaining image bytes directly to the stego image.”
+After encoding is complete, I copy the remaining image bytes directly to the stego image.
 
 🔹 do_encoding() (MAIN CONTROLLER)
 
-“This function controls the complete encoding process.
+This function controls the complete encoding process.
 It calls all helper functions step by step and ensures encoding is done correctly with proper error handling.
 
 
