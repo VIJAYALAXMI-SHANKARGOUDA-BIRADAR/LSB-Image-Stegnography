@@ -152,6 +152,12 @@ It calls all helper functions step by step and ensures encoding is done correctl
 <img width="783" height="408" alt="image" src="https://github.com/user-attachments/assets/fc6ba604-8b16-4208-8d85-0e0e59ecbea0" />
 
 
+<img width="1457" height="729" alt="image" src="https://github.com/user-attachments/assets/3c32d46a-0b39-4ceb-974d-6bff0f63379d" />
+
+<img width="1405" height="721" alt="Screenshot 2026-02-04 091254" src="https://github.com/user-attachments/assets/7f233445-8329-46e0-9331-8f6a948e61c1" />
+
+
+
 
 
 
