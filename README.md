@@ -133,13 +133,24 @@ It calls all helper functions step by step and ensures encoding is done correctl
 3.decoding => ./a.out -d st.bmp
 
 
-# 📘 Learning Outcome
+# 📘 Learning Outcomes
 
 - Understood LSB-based image steganography
 - Gained hands-on experience with bitwise operations
 - Learned binary file handling using C
 - Improved understanding of command-line arguments
 - Practiced modular programming using multiple source files
+
+# Sample Output
+
+1. Encoding
+    <img width="923" height="766" alt="image" src="https://github.com/user-attachments/assets/b5a91a66-e36a-4d50-8db0-c146178fe111" />
+
+2. Decoding
+
+
+<img width="783" height="408" alt="image" src="https://github.com/user-attachments/assets/fc6ba604-8b16-4208-8d85-0e0e59ecbea0" />
+
 
 
 
