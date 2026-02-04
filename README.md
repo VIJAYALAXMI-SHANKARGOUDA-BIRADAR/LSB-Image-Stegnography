@@ -117,6 +117,72 @@ This function controls the complete encoding process.
 It calls all helper functions step by step and ensures encoding is done correctly with proper error handling.
 
 
+ ## 🔁 Overall Decoding Flow
+
+In the decoding part, my program extracts the hidden secret data from the stego BMP image using the LSB technique.
+First, I validate the input arguments and open the stego image file. Then I skip the BMP header to reach the encoded data.
+The program decodes a predefined magic string to confirm that the image contains hidden data.
+After that, it decodes the secret file extension size, secret file extension, and secret file size.
+Finally, it extracts the secret file data bit by bit from the LSBs of the image bytes and writes the decoded data into an output file with the correct file extension.
+
+🔹 open_files_decode()
+
+This function opens the stego image file in read mode.
+Proper error handling is done to ensure that decoding does not continue if the file cannot be opened.
+
+🔹 read_and_validate_decode_args()
+
+This function validates the command-line arguments for decoding.
+It checks whether the provided input file is a .bmp file.
+If the output file name is provided, it uses that name; otherwise, it assigns a default name (decoded) for the output file.
+
+🔹 decode_byte_from_lsb()
+
+This function extracts one byte of secret data from 8 image bytes.
+It reads the least significant bit of each image byte, shifts it to the correct position, and reconstructs the original character using bitwise operations.
+
+🔹 decode_size_from_lsb()
+
+This function decodes an integer value (such as file size or extension size) from the LSBs of 32 image bytes.
+Each LSB bit is extracted and combined to reconstruct the original 32-bit size value.
+
+🔹 decode_magic_string()
+
+A predefined magic string is decoded from the stego image.
+This step confirms that the image actually contains hidden data encoded by the same steganography algorithm.
+
+🔹 decode_data_from_image()
+
+This is a generic function used to decode any data from the stego image.
+For each character, it reads 8 bytes from the image and calls decode_byte_from_lsb() to reconstruct the original data.
+
+🔹 decode_secret_file_ext_size()
+
+This function decodes the size of the secret file extension.
+It reads 32 bytes from the stego image and extracts the extension size using LSB decoding.
+
+🔹 decode_secret_file_extn()
+
+This function decodes the actual secret file extension (for example, .txt).
+The decoded extension is appended to the output file name so that the original file type is restored.
+
+🔹 decode_secret_file_size()
+
+This function decodes the size of the secret file data.
+Knowing the file size helps the decoder determine how many bytes of secret data need to be extracted.
+
+🔹 decode_secret_file_data()
+
+This function extracts the complete secret file data from the stego image.
+After decoding, the data is written into the output file using the decoded file name and extension.
+
+🔹 do_decoding() (MAIN CONTROLLER)
+
+This function controls the entire decoding process.
+It opens files, skips the BMP header, decodes the magic string, secret file extension, file size, and secret data step by step.
+Proper status checking and error handling ensure that decoding is completed safely and correctly.
+
+
 # Compilation 
 <img width="940" height="151" alt="image" src="https://github.com/user-attachments/assets/5a0e4e3f-30bc-4257-8c1d-7b1a5fbe1536" />
 
